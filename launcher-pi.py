@@ -1,18 +1,19 @@
 import sys
 import time
 from render import welcome
-from EPD import EPD
+from papirus import Papirus
 
 
 def main():
     image = welcome.generate_frame()
 
-    epd = EPD()
-    epd.clear()
-    print('panel = {p:s} {w:d} x {h:d}  version={v:s} COG={g:d} FILM={f:d}'.format(p=epd.panel, w=epd.width, h=epd.height, v=epd.version, g=epd.cog, f=epd.film))
+    screen = Papirus()
+    screen.clear()
 
-    epd.display(image)
-    epd.partial_update()
+    print('panel = {p:s} {w:d} x {h:d}  version={v:s} COG={g:d} FILM={f:d}'.format(p=screen.panel, w=screen.width, h=screen.height, v=screen.version, g=screen.cog, f=screen.film))
+
+    screen.display(image)
+    screen.partial_update()
     time.sleep(.5)
 
 
