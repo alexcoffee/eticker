@@ -10,7 +10,8 @@ def main():
 
     playbooks = {
         'ticker': Ticker,
-        'welcome': Welcome
+        'welcome': Welcome,
+        'crypto': Crypto
     }
 
     klass = playbooks.get(playbook, Welcome)
