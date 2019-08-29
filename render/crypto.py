@@ -31,9 +31,10 @@ def generate_frame(ticker):
         image.paste(img_symbol, (2, 0, img_symbol.width + 2, height))
 
         # print price
-        txt_price = '{}'.format(round(price, 2))
+        txt_price = '${:0.0f}'.format(price)
         size_price = big_font.getsize(txt_price)
-        draw.text((width / 2 - size_price[0] / 2 + img_symbol.width / 2, -5), txt_price, fill=BLACK, font=big_font)
+        x = width / 2 - size_price[0] / 2 + img_symbol.width / 2
+        draw.text((x, 20), txt_price, fill=BLACK, font=big_font)
 
         # print time
         txt_time = '{}'.format(time.strftime("%_I:%M %p", time.localtime()))
