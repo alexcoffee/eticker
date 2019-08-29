@@ -27,7 +27,7 @@ def generate_frame(ticker):
         draw.rectangle((0, 0, width, height), fill=WHITE, outline=WHITE)
 
         # add vertical symbol name
-        img_symbol = draw_symbol(ticker)
+        img_symbol = draw_symbol(ticker.upper())
         image.paste(img_symbol, (2, 0, img_symbol.width + 2, height))
 
         # print price

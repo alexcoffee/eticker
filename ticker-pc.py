@@ -3,7 +3,9 @@ from render import ticker
 
 
 def main():
-    image = ticker.generate_frame('BTC')
+    symbol = sys.argv[1] if len(sys.argv) == 2 else 'LK'
+
+    image = ticker.generate_frame(symbol)
     image.show()
 
 
