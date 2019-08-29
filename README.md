@@ -44,14 +44,10 @@ sudo apt-get install fonts-roboto
 
 ### run
 
-on pi:
 ```bash
-python3 launcher-pi.py
-```
-
-for local development:
-```
-python3 launcher-pc.p
+python3 launch.py
+python3 launch.py welcome
+python3 launch.py ticker amd
 ```
 
 
