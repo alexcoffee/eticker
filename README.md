@@ -48,6 +48,8 @@ sudo apt-get install fonts-roboto
 python3 launch.py
 python3 launch.py welcome
 python3 launch.py ticker amd
+python3 launch.py crypto
+python3 launch.py crypto btc
 ```
 
 
