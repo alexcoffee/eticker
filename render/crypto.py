@@ -31,7 +31,8 @@ def generate_frame(ticker):
         image.paste(img_symbol, (2, 0, img_symbol.width + 2, height))
 
         # print price
-        txt_price = '${:0.0f}'.format(price)
+        txt_price = '${:0.0f}'.format(price) if isinstance(price, float) else price
+
         size_price = big_font.getsize(txt_price)
         x = width / 2 - size_price[0] / 2 + img_symbol.width / 2
         draw.text((x, 20), txt_price, fill=BLACK, font=big_font)
@@ -70,6 +71,7 @@ def get_crypto_price(ticker):
         response_json = response.json()
 
         return float(response_json[0].get('price_usd'))
+
     except:
         print("Cannot get crypto price for ", ticker)
-        return 0.00
+        return "fail"
