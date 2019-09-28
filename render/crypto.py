@@ -12,7 +12,7 @@ FONT_FILE = 'fonts/Roboto-Bold.ttf'
 SIZE = (200, 96)
 
 
-def generate_frame(ticker):
+def generate_frame(ticker, robinhood=None):
     image = Image.new('1', SIZE, WHITE)
 
     draw = ImageDraw.Draw(image)
@@ -22,7 +22,10 @@ def generate_frame(ticker):
     small_font = ImageFont.truetype(FONT_FILE_SMALL, 20)
 
     while 1:
-        price = get_crypto_price(ticker)
+        if robinhood is None:
+            price = get_crypto_price(ticker)
+        else:
+            price = get_robin_price(robinhood)
 
         draw.rectangle((0, 0, width, height), fill=WHITE, outline=WHITE)
 
@@ -74,4 +77,11 @@ def get_crypto_price(ticker):
 
     except:
         print("Cannot get crypto price for ", ticker)
+        return "fail"
+
+
+def get_robin_price(robinhood):
+    try:
+        return float(robinhood.get_btc())
+    except:
         return "fail"
