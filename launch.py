@@ -32,13 +32,16 @@ def show(image):
     image.show()
 
 
-def paper(image):
+def paper(image, rotate=True):
     from papirus import Papirus
 
     screen = Papirus()
     screen.clear()
 
     print('panel = {p:s} {w:d} x {h:d}  version={v:s} COG={g:d} FILM={f:d}'.format(p=screen.panel, w=screen.width, h=screen.height, v=screen.version, g=screen.cog, f=screen.film))
+
+    if rotate:
+        image = image.rotate(180)
 
     screen.display(image)
     screen.partial_update()
