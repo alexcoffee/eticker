@@ -11,6 +11,7 @@ def main():
     playbooks = {
         'ticker': Ticker,
         'welcome': Welcome,
+        'wash': Wash,
         'crypto': Crypto
     }
 
